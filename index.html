@@ -1,0 +1,64 @@
+<html>
+
+<head>
+<style>
+#title {
+	text-align: center;
+	font-family: monospace;
+	font-size: 50px;
+}
+
+#colour {
+	width: 500px;
+	height: 300px;
+}
+
+input {
+	display: block;
+	padding: 10px 0 10px 0;
+	margin: auto;
+	width: 50%;
+}
+
+#output {
+	text-align: center;
+	font-family: monospace;
+	font-size: 40px;
+}
+</style>
+</head>
+
+<body>
+<div id="title">choose your colour:</div>
+<!-- <div id="colour"></div> -->
+<br />
+<input type="range" min="0" max="360" value="180" oninput="hue=parseInt(this.value); update()">
+<br />
+<input type="range" min="0" max="100" value="50" oninput="sat=parseInt(this.value); update()">
+<br />
+<input type="range" min="0" max="100" value="50" oninput="val=parseInt(this.value); update()">
+<div id="output"></div>
+
+<script>
+//var output = document.getElementById("colour")
+var output = document.getElementsByTagName("body")[0]
+
+
+var [hue, sat, val] = [180, 50, 50]
+update()
+
+function update(){
+	var col = "hsl(" + hue.toString() + ", " + val.toString() + "%, " + sat.toString() + "%)"
+	output.style.backgroundColor = col
+	var rgb = output.style.backgroundColor.toString()
+	document.getElementById("output").innerText = col + "\n" + rgb + "\n" + rgbToHex(rgb)
+}
+
+function rgbToHex(rgb){
+	var [r,g,b] = rgb.replace(/[rgb()]/g, '').split(",").map(i=>parseInt(i).toString(16))
+	return "#" + (r.length == 1 ? 0 + r : r) + (g.length == 1 ? 0 + g : g) + (b.length == 1 ? 0 + b : b)
+}
+
+</script>
+</body>
+</html>
