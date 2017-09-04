@@ -1,3 +1,3 @@
-#Simple little colour picker
+# Simple little colour picker
 
-Pick your colour [here](http://roadkillcat.github.io/ColourPicker)
+Pick your colour [here](http://roadkillcat.github.io/ColourPicker).
