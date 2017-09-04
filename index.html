@@ -48,7 +48,7 @@ var [hue, sat, val] = [180, 50, 50]
 update()
 
 function update(){
-	var col = "hsl(" + hue.toString() + ", " + val.toString() + "%, " + sat.toString() + "%)"
+	var col = "hsl(" + hue.toString() + ", " + sat.toString() + "%, " + val.toString() + "%)"
 	output.style.backgroundColor = col
 	var rgb = output.style.backgroundColor.toString()
 	document.getElementById("output").innerText = col + "\n" + rgb + "\n" + rgbToHex(rgb)
